@@ -52,6 +52,18 @@ Na raíz do projeto:
 $ python3 run.py
 ```
 
+## Utilização da aplicação
+
+Exemplo de uso:
+
+```bash
+curl --location --request POST 'http://localhost:5000/api/ecommerce/v1/question-and-answer' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "question": "qual a melhor ração para golden?"
+}'
+```
+
 ## Testes unitários
 
 ```bash
