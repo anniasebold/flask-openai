@@ -1,5 +1,5 @@
 import os
 
 class Config:
-    SECRET_KEY = os.getenv('SECRET_KEY', 'you-will-never-guess')
-    OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', 'your-openai-api-key')
+    SECRET_KEY = os.getenv('SECRET_KEY', 'secret_key_example')
+    OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', 'openai_api_key_example')
