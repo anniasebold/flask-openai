@@ -14,11 +14,15 @@ class QuestionAnswerController:
 
     def __question_answer(self, question: str) -> str:
         openai_handler = OpenAIHandler()
-        return openai_handler.get_answer(question)
+        formatted_question = (
+            "Responda em formato JSON: { 'resposta': 'texto da resposta' }. "
+            f"Pergunta: {question}"
+        )
+        return openai_handler.get_answer(formatted_question)
 
     def __format_response(self, answer: str) -> Dict:
         parsed_response = json.loads(answer)
-        response_content = parsed_response["resposta"]
+        response_content = parsed_response.get("resposta", answer)
         return {
             "response": response_content
         }
