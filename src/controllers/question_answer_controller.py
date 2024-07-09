@@ -1,3 +1,4 @@
+import json
 from typing import Dict
 from src.drivers.openai_handler import OpenAiHandler
 
@@ -15,6 +16,8 @@ class QuestionAnswerController:
         return openai_handler.get_answer(question)
 
     def __format_response(self, answer: str) -> Dict:
+        parsed_response = json.loads(answer)
+        response_content = parsed_response["resposta"]
         return {
-            "response": answer
+            "response": response_content
         }

@@ -1,15 +1,17 @@
 from src.views.http_types.http_response import HttpResponse
-from .error_types.http_unprocessable_entity import HttpUnprocessableEntityError
+from .openai_error import OpenAIError
 
 def handle_errors(error: Exception) -> HttpResponse:
-    if isinstance(error, HttpUnprocessableEntityError):
+    if isinstance(error, OpenAIError):
         return HttpResponse(
-            status_code=error.status_code,
+            status_code=500,
             body={
                 "errors": [{
-                    "title": error.name,
-                    "detail": error.message
-                }]
+                "title": "OpenAI Error",
+                "type": error.error_type,
+                "code": error.code,
+                "detail": error.message,
+            }]
             }
         )
 
