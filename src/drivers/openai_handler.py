@@ -2,7 +2,7 @@ from openai import OpenAI, APIError
 from src.config import Config
 from src.errors.openai_error import OpenAIError
 
-class OpenAiHandler:
+class OpenAIHandler:
     def __init__(self):
         self.client = OpenAI(
             organization=Config.OPENAI_ORGANIZATION_ID, api_key=Config.OPENAI_API_KEY

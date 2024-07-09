@@ -1,18 +1,19 @@
 import json
 from typing import Dict
-from src.drivers.openai_handler import OpenAiHandler
+from src.drivers.openai_handler import OpenAIHandler
 
 class QuestionAnswerController:
     '''
         Responsibility for implementing business rules
     '''
-    def answer_question(self, question: str) -> Dict:
-        response = self.__answer_question(question)
+
+    def question_answer(self, question: str) -> Dict:
+        response = self.__question_answer(question)
         formatted_response = self.__format_response(response)
         return formatted_response
 
-    def __answer_question(self, question: str) -> str:
-        openai_handler = OpenAiHandler()
+    def __question_answer(self, question: str) -> str:
+        openai_handler = OpenAIHandler()
         return openai_handler.get_answer(question)
 
     def __format_response(self, answer: str) -> Dict:

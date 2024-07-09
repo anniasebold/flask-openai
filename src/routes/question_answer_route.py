@@ -11,7 +11,7 @@ def question_and_answer():
     try:
         question_answer_view = QuestionAnswerView()
         http_request = HttpRequest(body=request.json)
-        response = question_answer_view.answer_question(http_request)
+        response = question_answer_view.question_answer(http_request)
     except Exception as exception:
         response = handle_errors(exception)
 
